@@ -22,7 +22,6 @@ const Comments = (props) => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(comment);
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
@@ -53,7 +52,7 @@ const Comments = (props) => {
       console.error('Error submitting comment:', error);
     }
   };
-  console.log(props.postDetails.comments);
+
   return (
     <div className="comment-contents">
       <h2 className="header">Comments</h2>
