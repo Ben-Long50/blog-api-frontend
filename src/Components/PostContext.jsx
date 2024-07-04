@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 export const PostContext = createContext();
 
@@ -12,13 +13,14 @@ const PostProvider = ({ children }) => {
   });
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredPosts, setFilteredPosts] = useState(posts);
+  const { apiUrl } = useContext(AuthContext);
 
   const navigation = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/posts/active', {
+        const response = await fetch(`${apiUrl}/posts/active`, {
           headers: {
             'Content-Type': 'application/json',
           },

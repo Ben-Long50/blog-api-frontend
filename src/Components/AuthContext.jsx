@@ -8,6 +8,8 @@ const AuthProvider = ({ children }) => {
     return token ? true : false;
   });
 
+  const apiUrl = 'https://legends-of-the-hearth.adaptable.app';
+
   const login = () => {
     setIsAuthenticated(true);
   };
@@ -17,7 +19,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout, apiUrl }}>
       {children}
     </AuthContext.Provider>
   );

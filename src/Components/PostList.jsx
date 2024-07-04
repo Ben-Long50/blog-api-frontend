@@ -2,8 +2,6 @@ import { useEffect, useContext } from 'react';
 import '../styles/form.css';
 import '../styles/post.css';
 import PostCard from './PostCard';
-import List from './List';
-import Button from './Button';
 import { PostContext } from './PostContext';
 
 const PostList = () => {

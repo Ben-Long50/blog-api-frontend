@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import Form from './Form';
 import InputField from './InputField';
+import { AuthContext } from './AuthContext';
 import { format } from 'date-fns';
 import '../styles/comment.css';
 
@@ -10,6 +11,7 @@ const Comments = (props) => {
     author: '',
     body: '',
   });
+  const { apiUrl } = useContext(AuthContext);
 
   const getAuthor = () => {
     const token = localStorage.getItem('token');
@@ -25,17 +27,14 @@ const Comments = (props) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(
-        `http://localhost:3000/posts/${props.postId}/comments`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(comment),
+      const response = await fetch(`${apiUrl}/${props.postId}/comments`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: JSON.stringify(comment),
+      });
       const result = await response.json();
       console.log(result);
       if (response.ok) {
