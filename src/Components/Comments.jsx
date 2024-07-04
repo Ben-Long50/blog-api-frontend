@@ -73,6 +73,7 @@ const Comments = (props) => {
           name="firstName"
           type="text"
           value={comment.body}
+          placeholder="Log in to comment"
           onChange={handleChange}
         />
       </Form>
