@@ -27,7 +27,7 @@ const Comments = (props) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`${apiUrl}/${props.postId}/comments`, {
+      const response = await fetch(`${apiUrl}/posts/${props.postId}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
