@@ -1,0 +1,147 @@
+.post-card-container {
+  width: clamp(0px, 100%, 1500px);
+}
+
+.post-card-layout {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 2.5rem;
+}
+
+.post-card {
+  background-color: var(--color-lvl-1);
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-shadow: 0px 3px 10px 0px rgb(100, 100, 100);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card-title {
+  font-size: clamp(1rem, 5vw, 1.25rem);
+}
+
+.card-info {
+  height: 100%;
+  display: grid;
+  grid-template-areas: 'title title' 'updateLabel date';
+  grid-template-rows: 1fr auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.card-info > * {
+  margin: 0;
+  padding: 0;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 20px 0px rgb(100, 100, 100);
+}
+
+.card-title {
+  grid-area: title;
+}
+
+.card-image {
+  border-radius: 0.5rem 0.5rem 0 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  grid-area: image;
+}
+
+.status-button {
+  font-size: 1.25rem;
+  padding: 0.25rem 0.75rem;
+  align-self: start;
+}
+
+.date,
+.status-button {
+  justify-self: end;
+}
+
+.updated-label,
+.date {
+  align-self: end;
+}
+
+.post-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+  font-size: 1.25rem;
+  max-width: 1000px;
+}
+
+.post-contents {
+  background-color: var(--color-lvl-1);
+  box-shadow: var(--box-shadow);
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  padding-top: 0;
+}
+
+.tool-list {
+  display: flex;
+  gap: 1rem;
+  align-self: flex-end;
+}
+
+.post-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 1rem;
+}
+
+.post-info-label,
+.post-info-value {
+  margin: 0;
+}
+
+.post-info-label {
+  justify-self: start;
+}
+
+.post-info-value {
+  justify-self: end;
+}
+
+.post-image {
+  width: calc(100% + 4rem);
+  margin: 0 -2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.post-body > p {
+  margin: 0;
+  padding: 0;
+}
+
+.post-body > ol > * {
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 800px) {
+  .post-contents {
+    padding: 0 1rem;
+  }
+  .post-image {
+    width: calc(100% + 2rem);
+    margin: 0 -1rem;
+  }
+  .post-layout {
+    gap: 1rem;
+  }
+}
