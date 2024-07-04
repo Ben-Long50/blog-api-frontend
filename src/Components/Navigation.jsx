@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import Button from './Button';
 import List from './List';
@@ -11,13 +11,10 @@ const Navigation = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
   const { mythosCategories, setActiveCategory } = useContext(PostContext);
 
-  const navigate = useNavigate();
-
   const handleLogout = () => {
     if (isAuthenticated) {
       localStorage.clear();
       logout();
-      navigate('/login');
     }
   };
 
