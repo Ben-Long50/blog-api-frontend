@@ -49,7 +49,7 @@ h1 {
   padding: 6vw;
   width: 100vw;
   flex-grow: 1;
-  background-image: url('./public/homepage.png');
+  background-image: url('/images/homepage.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
